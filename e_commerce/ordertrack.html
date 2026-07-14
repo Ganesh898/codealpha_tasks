@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order - Annapurna ltd.co</title>
+    <link rel="stylesheet" href="ordertrack.css">
+</head>
+<body>
+    <!-- Body tag ke thik andar daalein -->
+
+
+    <div class="tracking-container">
+        <h2>Track Your Order</h2>
+        <p class="subtitle">Apna Order ID aur Tracking number niche daalein.</p>
+
+        <div class="tracking-search-box">
+            <input type="text" id="order-id-input" placeholder="Enter Order ID (e.g., AP-00001 or 1)">
+            <button id="track-btn" class="track-btn">Track Status</button>
+        </div>
+
+        <div id="track-message" class="track-message"></div>
+        <div id="recent-orders" class="recent-orders"></div>
+
+        <div class="order-meta-info">
+            <p><strong>Order ID:</strong> <span id="display-order-id">No order selected</span></p>
+            <p><strong>Estimated Delivery:</strong> <span id="estimated-delivery" class="highlight-text">-</span></p>
+        </div>
+
+        <div class="tracking-timeline">
+            
+            <div class="timeline-step completed">
+                <div class="status-marker">✓</div>
+                <div class="status-content">
+                    <h3>Order Placed</h3>
+                    <p>We have received your order.</p>
+                    <span class="status-time">June 28, 2026 - 10:30 AM</span>
+                </div>
+            </div>
+
+            <div class="timeline-step completed">
+                <div class="status-marker">✓</div>
+                <div class="status-content">
+                    <h3>Packed & Ready</h3>
+                    <p>Your item has been picked and packed.</p>
+                    <span class="status-time">June 29, 2026 - 09:15 AM</span>
+                </div>
+            </div>
+
+            <div class="timeline-step active">
+                <div class="status-marker">3</div>
+                <div class="status-content">
+                    <h3>Shipped (In Transit)</h3>
+                    <p>On the way to your nearest hub.</p>
+                    <span class="status-time">In Progress</span>
+                </div>
+            </div>
+
+            <div class="timeline-step pending">
+                <div class="status-marker">4</div>
+                <div class="status-content">
+                    <h3>Out for Delivery</h3>
+                    <p>Courier partner will deliver to your doorstep.</p>
+                    <span class="status-time">Pending</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="ordertrack.js"></script>
+</body>
+</html>

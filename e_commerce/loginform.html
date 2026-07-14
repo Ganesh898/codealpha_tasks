@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="loginform.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Annapurna ltd.co</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Body tag ke thik andar daalein -->
+
+</div>
+
+    <div class="form-container">
+        <div class="form-toggle">
+            <button class="toggle-btn active" id="toggle-login">Log In</button>
+            <button class="toggle-btn" id="toggle-signup">Sign Up</button>
+        </div>
+
+        <div id="login-form" class="form-box active">
+            <h2>Welcome Back</h2>
+            <form action="#" method="POST">
+                <div id="auth-message-login" class="auth-message"></div>
+                <div class="input-group">
+                    <label for="login-email">Email or Username</label>
+                    <input type="text" id="login-email" name="username" required placeholder="Enter your email or username">
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required placeholder="Enter your password">
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#" id="forgot-link">Forgot Password?</a>
+                </div>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+
+            <div id="forgot-password-box" class="auth-message" style="display:none; margin-top:10px;">
+                <h3>Recover account</h3>
+                <input type="text" id="recover-username" placeholder="Enter username or email" style="width:100%; padding:8px; margin-bottom:8px;">
+                <button type="button" id="recover-button" class="submit-btn">Get reset code</button>
+                <div id="recover-message" class="auth-message"></div>
+                <input type="text" id="reset-code" placeholder="Enter reset code" style="width:100%; padding:8px; margin-top:8px;">
+                <input type="password" id="new-password" placeholder="New password" style="width:100%; padding:8px; margin-top:8px;">
+                <button type="button" id="reset-button" class="submit-btn" style="margin-top:8px;">Create new password</button>
+            </div>
+        </div>
+
+        <div id="signup-form" class="form-box">
+            <h2>Create Account</h2>
+            <form action="#" method="POST">
+                <div id="auth-message-signup" class="auth-message"></div>
+                <div class="input-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" name="username" required placeholder="Your full name">
+                </div>
+                <div class="input-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" required placeholder="name@example.com">
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required placeholder="Create a password">
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+                <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+            </form>
+        </div>
+    </div>
+
+    <script src="loginform.js"></script>
+</body>
+</html>

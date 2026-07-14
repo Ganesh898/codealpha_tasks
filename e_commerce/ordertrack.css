@@ -1,0 +1,227 @@
+/* Core Styling reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Layout Main Container Card */
+.tracking-container {
+    background-color: #ffffff;
+    max-width: 600px;
+    width: 100%;
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border-top: 5px solid #232f3e; /* Website Header Navy Slate color */
+}
+
+h2 {
+    color: #232f3e;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #718096;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Input Fields Area */
+.tracking-search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.tracking-search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: #f8fafc;
+}
+
+.tracking-search-box input:focus {
+    outline: none;
+    border-color: #232f3e;
+}
+
+.track-btn {
+    padding: 12px 24px;
+    background-color: #ff9900; /* Main Theme Accent Orange */
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.track-btn:hover {
+    background-color: #e08700;
+}
+
+/* Metadata Text */
+.order-meta-info {
+    background-color: #f8fafc;
+    border-left: 4px solid #232f3e;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 15px;
+    color: #232f3e;
+}
+
+.highlight-text {
+    color: #ff9900;
+    font-weight: 600;
+}
+
+/* --- VERTICAL TIMELINE GRAPHICS --- */
+.tracking-timeline {
+    position: relative;
+    padding-left: 45px;
+}
+
+/* Left-Side Vertical Tracking Line (Connects steps) */
+.tracking-timeline::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 10px;
+    bottom: 10px;
+    width: 4px;
+    background-color: #e2e8f0;
+    z-index: 1;
+}
+
+/* Individual Timeline Row */
+.timeline-step {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.timeline-step:last-child {
+    margin-bottom: 0;
+}
+
+/* Rounded Step Number/Check Icons */
+.status-marker {
+    position: absolute;
+    left: -45px;
+    top: 2px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    color: #718096;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 2;
+    transition: all 0.3s ease;
+    border: 3px solid #ffffff;
+}
+
+.status-content h3 {
+    font-size: 16px;
+    color: #4a5568;
+    margin-bottom: 4px;
+}
+
+.status-content p {
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 4px;
+}
+
+.status-time {
+    font-size: 12px;
+    color: #a0aec0;
+    font-weight: 500;
+}
+
+/* --- DYNAMIC STATES MANAGEMENT --- */
+
+/* Completed State Rules */
+.timeline-step.completed .status-marker {
+    background-color: #232f3e; /* Theme Navy */
+    color: #ffffff;
+}
+.timeline-step.completed .status-content h3 {
+    color: #232f3e;
+}
+
+/* Current Active State Rules */
+.timeline-step.active .status-marker {
+    background-color: #ff9900; /* Theme Orange */
+    color: #ffffff;
+    box-shadow: 0 0 0 5px rgba(255, 153, 0, 0.2);
+}
+.timeline-step.active .status-content h3 {
+    color: #ff9900;
+    font-weight: 700;
+}
+.timeline-step.active .status-time {
+    color: #ff9900;
+}
+
+.track-message {
+    min-height: 22px;
+    margin: -12px 0 18px;
+    color: #0a7a45;
+    font-weight: 600;
+}
+
+.track-message.error {
+    color: #cc0c39;
+}
+
+.recent-orders {
+    margin-bottom: 24px;
+}
+
+.recent-orders h3 {
+    color: #232f3e;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.recent-orders p {
+    color: #718096;
+}
+
+.recent-order-btn {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    background: #f8fafc;
+    color: #232f3e;
+    cursor: pointer;
+    text-align: left;
+}
+
+.recent-order-btn:hover {
+    border-color: #ff9900;
+}

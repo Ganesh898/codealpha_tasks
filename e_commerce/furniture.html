@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="project1.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-commerce web</title>
+</head>
+
+<body>
+    <!-- Body tag ke thik andar daalein -->
+<div id="loading-overlay" class="loading-overlay hidden">
+    <div class="spinner"></div>
+    <p>Processing, please wait...</p>
+</div>
+    <div class="main">
+        
+
+
+
+
+        <!--Navbar-->
+        <div id="navbar">
+            <img src="logoor.png" alt="logo">
+           
+            <div class="category-section">
+
+                <select name="Category" id="category-select" onchange="navigateCategory(this)">
+                   
+                    <option value="furniture.html">Furniture</option>
+                    <option value="grocery.html">Grocery</option>
+                    <option value="books.html">Books</option>
+                    <option value="electronics.html">Electronics</option>
+                    <option value="project1.html">All Category</option>
+                    <option value="clothing.html">Clothing</option>
+                    
+                    <option value="grocery.html">Grocery</option>
+                    <option value="furniture.html">Furniture</option>
+                </select>
+
+                <input type="search" id="search-input" placeholder="   Search Annapurna ltd.co ...">
+            </div>
+
+
+            <div id="cart" class="cart-trigger">
+                <i class="fa-solid fa-cart-arrow-down"></i>
+                <span class="cart-text">Cart</span>
+                <span id="cart-count-badge" class="cart-count-badge">0</span>
+            </div>
+            <div id="cart-panel" class="cart-panel">
+                <div class="cart-panel-header">Your cart</div>
+                <div id="cart-items-list" class="cart-items-list"></div>
+                <div class="cart-panel-footer">
+                    <div class="cart-total">Total: <strong id="cart-total-price">₹0</strong></div>
+                    <button id="checkout-btn" class="checkout-btn">Checkout</button>
+                </div>
+            </div>
+            <select id="your_account" onchange="navigateToPage(this.value)">
+                <option value="" selected disabled>👤 Your Account</option>
+                <option value="ordertrack.html">🛒Your Order</option>
+                <option value="your wish list">❤️Your Wish List</option>
+                <option value="Your Recommendations">🎭Your Recommendations</option>
+                <option value="Your Seller Account">👤Your Seller Account</option>
+            </select>
+            <div id="login">
+                <i class="fa-solid fa-circle-user"></i><span class="login-text">Your Account</span>
+            </div>
+
+            <div class="language">
+                <select name="language">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="hi">🇮🇳 हिन्दी</option>
+                    <option value="fr">🇫🇷 Francas</option>
+                    <option value="es">🇪🇸 Espanol</option>
+
+                </select>
+            </div>
+
+        </div>
+        <div class="slider">
+            <div class="slides">
+                <div class="slide active">
+                    <img src="slide1.jpg" alt="Mega sale 50% off" class="slide-img">
+                    <div class="banner-text">
+                        <h2>Mega Electronics sale</h2>
+                        <p>Up to 50% off on Headset & Accessories</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="slide2.jpg" alt="t-shirt offer" class="slide-img">
+                    <div class="banner-text">
+                        <h2>Premium T-Shirt</h2>
+                        <p>New Arrivals: Adidas T-Shirt</p>
+                        <button class="shop-now">Explore More</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="slide3.jpg" alt="glasses" class="slide-img">
+                    <div class="banner-text">
+                        <h2>Smart Style, Smart Life</h2>
+                        <p>Best Deals On Glasses</p>
+                        <button class="shop-now">Grab Deals</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="slide4.jpg" alt="Shoe" class="slide-img">
+                    <div class="banner-text">
+                        <h2>Wings on your feet</h2>
+                        <p>Branded Shoe OFF Upto 60%</p>
+                        <button class="shop-now">Check-It</button>
+                    </div>
+                </div>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            <div class="dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="amazon-deals-section">
+       
+
+        <div class="deals-grid" id="product-list">
+        </div>
+    </div>
+        <!-- Footer (added) -->
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-store"></i>About</h4>
+                    <p>Small shop description. Quality products, fast delivery.<i class="fa-solid fa-truck-fast"></i></p>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-bars"></i>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fa-solid fa-house-user"></i>Home</a></li>
+                        <li><a href="project1.html"><i class="fa-brands fa-evernote"></i>Products</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-address-card"></i>Contact</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i>About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-address-book"></i> Contact</h4>
+                    <p><i class="fa-solid fa-paper-plane"></i>Mango,dimna road</p>
+                    <p><i class="fa-solid fa-envelope"></i>Email: ganeshkumar20200@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i>Phone: +91 7070078738</p>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-user-plus"></i>Follow</h4>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/ganesh-kumar-2098a325b?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fa-brands fa-square-linkedin"></i>Linkedin</a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i>Twitter</a>
+                        <a href="https://www.instagram.com/unknownprofile.89?igsh=aTI4ZWlnYWxhOWNm"><i class="fa-brands fa-instagram"></i>Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; <span id="year"></span> Your Website. All rights reserved.</div>
+            <script>
+                (function(){
+                    var y = new Date().getFullYear();
+                    var el = document.getElementById('year');
+                    if(el) el.textContent = y;
+                })();
+            </script>
+        </footer>
+    <div id="payment-modal" class="payment-modal hidden">
+        <div class="payment-modal-content">
+            <button id="close-payment-modal" class="close-payment-modal" type="button">×</button>
+            <h3>Secure checkout</h3>
+            <p>Use any test card details to complete your order.</p>
+            <form id="payment-form">
+                <input type="text" name="customerName" placeholder="Your full name" required>
+                <input type="text" name="address" placeholder="Delivery address" required>
+                <input type="text" name="cardName" placeholder="Name on card" required>
+                <input type="text" name="cardNumber" placeholder="4242 4242 4242 4242" required>
+                <input type="text" name="expiry" placeholder="MM/YY" required>
+                <input type="text" name="cvv" placeholder="CVV" required>
+                <button type="submit" class="checkout-btn">Pay now</button>
+            </form>
+            <p id="payment-message" class="payment-message"></p>
+        </div>
+    </div>
+<script>
+    function navigateCategory(select) {
+        navigateToPage(select.value);
+    }
+
+    function navigateToPage(page) {
+        if (!page) return;
+        const currentFolder = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+        window.location.href = currentFolder + page;
+    }
+</script>
+<script src="authstatus.js"></script>
+<script src="furniture.js"></script>
+
+</body>
+
+</html>

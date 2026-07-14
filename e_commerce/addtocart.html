@@ -1,0 +1,40 @@
+<!-- Body tag ke thik andar daalein -->
+<div id="loading-overlay" class="loading-overlay hidden">
+    <div class="spinner"></div>
+    <p>Processing, please wait...</p>
+</div>
+<div class="cart-container">
+    <button id="cart-icon-btn" class="header-cart-btn">
+        <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart (<span id="cart-count">0</span>)
+    </button>
+    
+    <div id="cart-dropdown" class="cart-dropdown-panel">
+        <h3>Your Cart Items</h3>
+        <div id="cart-items-list">
+            <p class="empty-msg">Your cart is empty</p>
+        </div>
+        <hr>
+        <div class="cart-total-section">
+            <strong>Total:</strong> $<span id="cart-total-price">0.00</span>
+        </div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+</div>
+
+<hr>
+
+<div class="products-grid">
+    <div class="product-card">
+        <img src="shoes.jpg" alt="Running Shoes" class="product-img">
+        <h4 class="product-title">Wings Running Shoes</h4>
+        <p class="product-price">$59.99</p>
+        <button class="add-to-cart-btn" data-id="1" data-name="Wings Running Shoes" data-price="59.99">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="shirt.jpg" alt="Casual Shirt" class="product-img">
+        <h4 class="product-title">Classic Casual Shirt</h4>
+        <p class="product-price">$29.99</p>
+        <button class="add-to-cart-btn" data-id="2" data-name="Classic Casual Shirt" data-price="29.99">Add to Cart</button>
+    </div>
+</div>

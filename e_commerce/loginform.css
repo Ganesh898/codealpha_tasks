@@ -1,0 +1,164 @@
+/* Reset basic layout styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9; /* Soft background to keep eyes on the card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Form Container Card */
+.form-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border-top: 5px solid #232f3e; /* Matches your deep slate/navy website header */
+}
+
+/* Tabs Toggle Layout */
+.form-toggle {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 12px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #718096;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+/* Active Form Tab State */
+.toggle-btn.active {
+    color: #232f3e;
+    border-bottom: 3px solid #ff9900; /* Accent Orange from your banner button */
+    margin-bottom: -2px;
+}
+
+/* Display Control for Forms */
+.form-box {
+    display: none;
+}
+
+.form-box.active {
+    display: block;
+}
+
+h2 {
+    color: #232f3e;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Inputs Structure */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #232f3e;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(35, 47, 62, 0.1);
+}
+
+/* Extra features (checkbox alignment, links) */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.remember-forgot label {
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.remember-forgot a {
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Primary Form Action Button */
+.submit-btn {
+    width: 100%;
+    padding: 13px;
+    background-color: #ff9900; /* Accent Orange */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e08700; /* Darker tone on hover */
+}
+
+/* Legal text block */
+.terms {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.terms a {
+    color: #232f3e;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
