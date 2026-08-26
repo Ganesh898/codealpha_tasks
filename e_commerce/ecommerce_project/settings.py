@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 try:
     import truststore
@@ -8,9 +9,9 @@ except ImportError:
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "dev-secret-key-for-ecommerce-demo"
-DEBUG = True
-ALLOWED_HOSTS = ["*"]
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-secret-key-for-ecommerce-demo")
+DEBUG = os.getenv("DJANGO_DEBUG", "true").lower() == "true"
+ALLOWED_HOSTS = [host.strip() for host in os.getenv("ALLOWED_HOSTS", "*").split(",") if host.strip()]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -24,6 +25,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -67,12 +69,11 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = "Lax"
-
-import os
 
 STATIC_URL = '/static/'
 
