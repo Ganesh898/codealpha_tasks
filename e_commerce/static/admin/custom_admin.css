@@ -1,0 +1,236 @@
+:root {
+    --annapurna-orange: #ff9900;
+    --annapurna-charcoal: #232f3e;
+    --annapurna-slate: #4b4e4e;
+    --annapurna-ink: #1f2933;
+    --annapurna-soft: #f4f6f7;
+}
+
+body {
+    background: var(--annapurna-orange);
+    color: #000;
+    font-weight: 700;
+}
+
+body.login,
+body.dashboard {
+    background: var(--annapurna-orange) !important;
+    color: #000 !important;
+}
+
+#content,
+#content-main,
+#content-related,
+#content h1,
+#content h2,
+#content h3,
+#content p,
+#content label,
+.form-row,
+.form-row label,
+.form-row p,
+.help,
+table,
+th,
+td,
+fieldset {
+    background: #fff;
+    color: #000;
+    font-weight: 700;
+}
+
+#content,
+#content-main,
+#content-related,
+.module,
+.results,
+#changelist-filter,
+.form-row,
+input,
+select,
+textarea,
+fieldset,
+table {
+    background-color: #fff;
+}
+
+#content input,
+#content select,
+#content textarea {
+    color: #000 !important;
+    background-color: #fff !important;
+    font-weight: 700 !important;
+}
+
+#nav-sidebar,
+#nav-sidebar *,
+#nav-sidebar a,
+#nav-sidebar a:link,
+#nav-sidebar a:visited,
+#nav-sidebar h2,
+#nav-sidebar h3,
+#nav-sidebar th,
+#nav-sidebar td,
+#changelist-filter,
+#changelist-filter *,
+#changelist-filter a,
+#changelist-filter a:link,
+#changelist-filter a:visited {
+    color: #000 !important;
+    font-weight: 700 !important;
+}
+
+#nav-sidebar,
+#nav-sidebar .module,
+#nav-sidebar .app-list,
+#changelist-filter {
+    background-color: #fff !important;
+}
+
+#content-related,
+#recent-actions-module {
+    margin-top: 24px;
+}
+
+#content a,
+#content a:link,
+#content a:visited,
+.object-tools a {
+    color: #000;
+    font-weight: 700;
+}
+
+#content a:hover,
+#content a:focus,
+.object-tools a:hover,
+.object-tools a:focus {
+    color: #fff;
+}
+
+#content .module a,
+#content .module a:link,
+#content .module a:visited,
+#content-related a,
+#content-related a:link,
+#content-related a:visited,
+#recent-actions-module a,
+#recent-actions-module a:link,
+#recent-actions-module a:visited {
+    color: #000 !important;
+    font-weight: 700 !important;
+}
+
+#content .module a:hover,
+#content .module a:focus,
+#content-related a:hover,
+#content-related a:focus,
+#recent-actions-module a:hover,
+#recent-actions-module a:focus {
+    color: #c56f00 !important;
+}
+
+#header {
+    background: var(--annapurna-orange);
+    color: #000;
+    border-bottom: 4px solid #000;
+}
+
+#branding h1 a,
+#branding h1 {
+    color: #000 !important;
+    font-weight: 700 !important;
+}
+
+#user-tools a:focus,
+#user-tools a:hover,
+#branding h1 a:focus,
+#branding h1 a:hover {
+    color: #fff;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+    background: #fff;
+    color: #000;
+    font-weight: 700;
+}
+
+.module,
+.results,
+#changelist-filter,
+.submit-row {
+    background: #fff;
+    color: #000;
+}
+
+div.breadcrumbs {
+    background: #fff;
+    color: #000;
+    font-weight: 700;
+    border-bottom: 1px solid #000;
+}
+
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button {
+    background: var(--annapurna-orange);
+    border-radius: 6px;
+    color: #1f2933;
+    font-weight: 700;
+}
+
+.button:focus,
+.button:hover,
+input[type="submit"]:focus,
+input[type="submit"]:hover,
+.submit-row input:focus,
+.submit-row input:hover,
+a.button:focus,
+a.button:hover {
+    background: #e88900;
+    color: #fff;
+}
+
+#content-main .module,
+#content-related .module,
+.change-list .results,
+.submit-row {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+#changelist-filter h2 {
+    background: #fff;
+    color: #000;
+}
+
+#changelist-filter,
+#changelist-filter h2,
+#changelist-filter h3,
+#changelist-filter li,
+#changelist-filter a {
+    color: var(--annapurna-ink);
+}
+
+#changelist-filter h2 {
+    color: #000;
+}
+
+a:link,
+a:visited {
+    color: #000;
+    font-weight: 700;
+}
+
+a:focus,
+a:hover {
+    color: #fff;
+}
+
+#footer {
+    color: #000;
+    font-weight: 700;
+}

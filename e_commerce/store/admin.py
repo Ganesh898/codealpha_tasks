@@ -1,6 +1,10 @@
 from django.contrib import admin
 from .models import Order, PasswordResetRequest
 
+admin.site.site_header = "Annapurna Store Admin"
+admin.site.site_title = "Annapurna Store"
+admin.site.index_title = "Store dashboard"
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ("id", "customer_name", "user", "amount", "payment_status", "created_at")

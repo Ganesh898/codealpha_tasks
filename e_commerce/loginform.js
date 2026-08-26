@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetButton = document.getElementById('reset-button');
     const recoverMessage = document.getElementById('recover-message');
     let resetUserId = null;
-    let resetCode = null;
 
     toggleSignup.addEventListener('click', () => {
         toggleLogin.classList.remove('active');
@@ -36,17 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     recoverButton.addEventListener('click', async () => {
         const identifier = document.getElementById('recover-username').value.trim();
-        const response = await fetch('/api/auth/forgot-password/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username: identifier })
-        });
-        const result = await response.json();
-        recoverMessage.textContent = result.message || 'Recovery request sent';
-        recoverMessage.style.color = result.success ? '#0a7a45' : '#cc0c39';
-        if (result.success) {
-            resetUserId = result.user_id;
-            resetCode = result.reset_code;
+        try {
+            const response = await fetch('/api/auth/forgot-password/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: identifier })
+            });
+            const result = await response.json();
+            recoverMessage.textContent = result.message || 'Recovery request sent';
+            recoverMessage.style.color = result.success ? '#0a7a45' : '#cc0c39';
+            if (result.success) resetUserId = result.user_id;
+        } catch (error) {
+            recoverMessage.textContent = 'Unable to send the recovery email right now';
+            recoverMessage.style.color = '#cc0c39';
         }
     });
 
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch('/api/auth/reset-password/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ user_id: resetUserId || '', reset_code: code || resetCode || '', new_password: newPassword })
+            body: JSON.stringify({ user_id: resetUserId || '', reset_code: code, new_password: newPassword })
         });
         const result = await response.json();
         recoverMessage.textContent = result.message || 'Password updated';
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json();
         loginMessage.textContent = result.message || 'Login complete';
         loginMessage.style.color = result.success ? '#0a7a45' : '#cc0c39';
-        if (result.success) window.location.href = 'project1.html';
+        if (result.success) window.location.href = '/';
     });
 
     signupFormElement.addEventListener('submit', async (event) => {
@@ -91,6 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json();
         signupMessage.textContent = result.message || 'Account created';
         signupMessage.style.color = result.success ? '#0a7a45' : '#cc0c39';
-        if (result.success) window.location.href = 'project1.html';
+        if (result.success) window.location.href = '/';
     });
 });

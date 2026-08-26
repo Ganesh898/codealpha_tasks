@@ -5,6 +5,8 @@ from pathlib import Path
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.conf import settings
+from django.core.mail import send_mail
 from django.http import FileResponse, Http404, JsonResponse
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
@@ -13,6 +15,19 @@ from django.views.decorators.http import require_http_methods
 from .models import Order, PasswordResetRequest
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+def api_root(request):
+    return JsonResponse({
+        "service": "e-commerce API",
+        "status": "ok",
+        "endpoints": [
+            "/api/auth/me/",
+            "/api/cart/",
+            "/api/checkout/",
+            "/api/orders/",
+        ],
+    })
 
 
 @csrf_exempt
@@ -159,7 +174,35 @@ def forgot_password(request):
         reset_code=reset_code,
         expires_at=timezone.now() + timedelta(minutes=15),
     )
-    return JsonResponse({"success": True, "message": "Recovery code created", "user_id": user.id, "reset_code": reset_request.reset_code})
+    if not user.email:
+        reset_request.delete()
+        return JsonResponse({"success": False, "message": "This account has no email address"}, status=400)
+    if settings.EMAIL_BACKEND == "django.core.mail.backends.console.EmailBackend":
+        reset_request.delete()
+        return JsonResponse({
+            "success": False,
+            "message": "Email service is not configured. Add SMTP settings and restart the server.",
+        }, status=503)
+
+    try:
+        send_mail(
+            subject="Your Annapurna password reset code",
+            message=(
+                f"Hello {user.username},\n\n"
+                f"Your password reset code is: {reset_request.reset_code}\n\n"
+                "This code expires in 15 minutes. If you did not request this, you can ignore this email."
+            ),
+            from_email=None,
+            recipient_list=[user.email],
+            fail_silently=False,
+        )
+    except Exception as error:
+        reset_request.delete()
+        return JsonResponse({
+            "success": False,
+            "message": f"Email delivery failed ({error.__class__.__name__}). Check your Gmail App Password and SMTP settings.",
+        }, status=503)
+    return JsonResponse({"success": True, "message": "Reset code sent to your email", "user_id": user.id})
 
 
 @csrf_exempt
@@ -270,7 +313,7 @@ def track_order(request, order_id):
     return JsonResponse({"success": True, "order": serialize_order(order)})
 
 
-def serve_file(request, filename="project1.html"):
+def serve_file(request, filename="index.html"):
     file_path = BASE_DIR / filename
     if not file_path.exists() or not file_path.is_file():
         raise Http404

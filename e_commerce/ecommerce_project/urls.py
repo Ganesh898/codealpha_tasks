@@ -5,7 +5,8 @@ from store import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.serve_file, {"filename": "project1.html"}, name="home"),
+    path("", views.serve_file, {"filename": "index.html"}, name="home"),
+    path("api/", views.api_root, name="api_root"),
     path("api/auth/register/", views.register_user, name="register_user"),
     path("api/auth/login/", views.login_user, name="login_user"),
     path("api/auth/logout/", views.logout_user, name="logout_user"),
